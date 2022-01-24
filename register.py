@@ -1,3 +1,4 @@
+from atexit import register
 import sys
 import sys
 import os
@@ -23,6 +24,7 @@ import imageUpload as imup
 
 # import MSFaceAPI.py for msface api calls
 import MSFaceAPI as msface
+
 
 
 window_width = 700
