@@ -11,7 +11,7 @@ headers = {
 
 # create a person group with name users
 personGroupId = 'users'
-msface_api_url = 'westcentralus.api.cognitive.microsoft.com'
+msface_api_url = 'centralindia.api.cognitive.microsoft.com'
 
 def face_detect(image_url):
     params =urllib.urlencode({
