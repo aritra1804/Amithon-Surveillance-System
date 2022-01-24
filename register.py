@@ -40,8 +40,9 @@ tmp_path = os.path.join(base_path,'tmp')
 placeholder_image = os.path.join(base_path,'placeholder_600x400.svg')
 db_path = os.path.join(base_path,'users.db')
 
-cloudinary_dataset = 'http://res.cloudinary.com/aish/image/upload/v1488457817/RTFRSS/dataset'
-cloudinary_tmp = 'http://res.cloudinary.com/aish/image/upload/v1488457817/RTFRSS/tmp'
+
+cloudinary_dataset = 'https://cloudinary.com/console/c-cb675f426b98b77a7589ae87d8368d/media_library/folders/bf45e98a2f0951897f23543fb3c77a4aff'
+cloudinary_tmp = 'https://cloudinary.com/console/c-cb675f426b98b77a7589ae87d8368d/media_library/folders/bf45e99bc7097df3541bc3d19b6eb55157'
 
 current_userid = 0
 current_userfname = ''
