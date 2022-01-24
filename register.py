@@ -229,7 +229,7 @@ class SignUpForm(QFrame):
             
         else:
             self.messageLbl.setText('Warning: Verification not done! first verify')
-            print "Verification not done! first verify"
+            print ("Verification not done! first verify")
 
 
 class AddDetailsTab(QWidget):
@@ -447,8 +447,8 @@ class GenerateDatasetTab(QWidget):
 
             except Exception as e:
                 self.messageLbl.setText('Error: Snapshot capturing failed')
-                print "Snapshot capturing failed...\n Errors:"
-                print e
+                print ("Snapshot capturing failed...\n Errors:")
+                print (e)
 
         if(self.snapshotCnt == self.maxSnapshotCnt):
             self.captureCompleted=True
@@ -466,9 +466,9 @@ class GenerateDatasetTab(QWidget):
         personName = user['uname']
         if not personName:
             self.messageLbl.setText('Error: Username empty!')
-            print 'username empty!'
+            print ('username empty!')
             self.messageLbl.setText('Error: Upload dataset failed!')
-            print 'upload dataset failed!'
+            print ('upload dataset failed!')
             return
 
         for file in os.listdir(self.store_dir):
