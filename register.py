@@ -475,9 +475,9 @@ class GenerateDatasetTab(QWidget):
             file_path=os.path.join(self.store_dir,file)
             try:
                 self.messageLbl.setText('Process: Uploading image... %d' %i)
-                print 'Uploading... %d' % i
+                print ('Uploading... %d' % i)
                 imup.upload_person_image(file_path,file,user['uname'])
-                print 'Uploaded... %d' % i
+                print ('Uploaded... %d' % i)
                 self.messageLbl.setText('Success: Uploaded image... %d' %i)
                 i=i+1
             except Exception as e:
@@ -485,7 +485,7 @@ class GenerateDatasetTab(QWidget):
 
         if i==1:
             self.messageLbl.setText('Error: Some error while uploading to cloudnary, Please try later!')
-            print 'Some error while uploading to cloudnary, Please try later!'
+            print ('Some error while uploading to cloudnary, Please try later!')
             return
 
         try:    
@@ -493,18 +493,18 @@ class GenerateDatasetTab(QWidget):
             for i in range(1,self.maxSnapshotCnt+1):
                 image_url=cloudinary_dir+'img_%d.jpg' % i
                 self.messageLbl.setText('Process: Adding face... %d' %i)
-                print 'Adding face... %d'%i
+                print ('Adding face... %d'%i)
                 msface.add_person_face(user['personid'],image_url)
-                print 'Added face... %d'%i
+                print ('Added face... %d'%i)
                 self.messageLbl.setText('Success: Added face... %d' %i)
             
-            print "Dataset Uploaded Sucessfuly!"    
+            print ("Dataset Uploaded Sucessfuly!")   
             self.messageLbl.setText('Success: Dataset Uploaded Sucessfuly!')
             self.uploadCompleted = True    
         except Exception as e:
                 self.messageLbl.setText('Error: Unknown Error!')
                 print("Error: \n")
-                print e
+                print (e)
 
     def trainModel(self):
             self.messageLbl.setText('Process: Training Started ')
