@@ -42,7 +42,7 @@ def create_person_group():
 
     body = '{}'
     try:
-        conn = httplib.HTTPSConnection(msface_api_url)
+        conn = httplib2.HTTPSConnection(msface_api_url)
         conn.request("PUT", "/face/v1.0/persongroups/{personGroupId}?%s" % params,body, headers)
         response = conn.getresponse()
         data = response.read()
@@ -58,7 +58,7 @@ def create_person_group():
 def get_persons():
 
     try:
-        conn = httplib.HTTPSConnection(msface_api_url)
+        conn = httplib2.HTTPSConnection(msface_api_url)
         conn.request("GET", "/face/v1.0/persongroups/%s/persons?" % personGroupId, "", headers)
         response = conn.getresponse()
         data = response.read()
@@ -86,7 +86,7 @@ def create_person(pname,udata):
     body = '{"name":"%s","userData":"%s"}' % (pname,udata)
     
     try:
-        conn = httplib.HTTPSConnection(msface_api_url )
+        conn = httplib2.HTTPSConnection(msface_api_url )
         conn.request("POST", "/face/v1.0/persongroups/%s/persons?" % personGroupId, body, headers)
         response = conn.getresponse()
         data = response.read()
@@ -104,7 +104,7 @@ def create_person(pname,udata):
 def add_person_face(personId,image_url):
     body = '{"url":"%s"}'% image_url
     try:
-        conn = httplib.HTTPSConnection(msface_api_url)
+        conn = httplib2.HTTPSConnection(msface_api_url)
         conn.request("POST", "/face/v1.0/persongroups/%s/persons/%s/persistedFaces?" %(personGroupId,personId), body, headers)
         response = conn.getresponse()
         data = response.read()
