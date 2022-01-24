@@ -205,7 +205,7 @@ class DynamicFrame(QWidget):
                 scaleFactor=1.1,
                 minNeighbors=5,
                 minSize=(80, 80),
-                flags=cv2.CV_HAAR_SCALE_IMAGE
+                # flags=cv2.CV_HAAR_SCALE_IMAGE
             )
 
             
