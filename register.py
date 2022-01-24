@@ -213,8 +213,8 @@ class SignUpForm(QFrame):
                 return
 
             self.messageLbl.setText('Success: User created: %s!' % user['uname'])    
-            print "User created ... " + user['uname']
-            print "PersonID = " + user['personid']
+            print ("User created ... " + user['uname'])
+            print ("PersonID = " + user['personid'])
             
             format_str = """INSERT INTO %s (id,uname,fname,lname,dob,email,gender,personid) 
                      VALUES (NULL,?,?,?,?,?,?,?);""" % TABLE_NAME
@@ -222,7 +222,7 @@ class SignUpForm(QFrame):
             conn.execute(format_str,params)
             self.messageLbl.setText('Success: User added to database sucessfully! Generate Face Dataset now')
             
-            print "User added to database sucessfully!"
+            print ("User added to database sucessfully!")
             conn.commit()
             global new_user_added
             new_user_added = True
