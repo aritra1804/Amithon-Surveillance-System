@@ -1,6 +1,7 @@
 import sys
 import sys
 import os
+import os.path
 import cv2
 
 
@@ -193,7 +194,7 @@ class SignUpForm(QFrame):
         user['gender']=str(self.genderEdt.currentText())
         
         sql_command = """SELECT * FROM %s WHERE uname= ? """ % TABLE_NAME
-        cursor.execute(sql_command,(user['uname'],))
+        cursor.execute(sql_command,(user['uname']))
         
         if cursor.fetchone():
             self.messageLbl.setText('Error: Username already exist! try something new')
