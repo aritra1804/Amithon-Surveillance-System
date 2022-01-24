@@ -189,7 +189,7 @@ class DynamicFrame(QWidget):
         welcome_names=''
         ramp_frames = 10
         
-        print "Face identification started .........."
+        print ("Face identification started ..........")
         cv2.destroyAllWindows()
         try:
             for i in xrange(ramp_frames):
@@ -209,7 +209,7 @@ class DynamicFrame(QWidget):
             )
 
             
-            print "Total Faces in Image = %d " % len(faces) 
+            print ("Total Faces in Image = %d " % len(faces) )
             
             #self.message_label.setText("Total Faces in Image = %d " % len(faces))
             
@@ -230,14 +230,14 @@ class DynamicFrame(QWidget):
                         cv2.imwrite(file, image_crop)
                         imup.upload_image(file,file_name)
                         faceid=msface.face_detect(cloudinary_url)
-                        print "Result for person %d " % persons_cnt
-                        print "Image File = " + str(file)
-                        print "faceId = " + str(faceid)
+                        print ("Result for person %d " % persons_cnt)
+                        print ("Image File = " + str(file))
+                        print ("faceId = " + str(faceid))
                         detected_personid = msface.face_identify(faceid)
                         
 
                         if detected_personid:
-                            print "detected_personid = " + str(detected_personid)
+                            print ("detected_personid = " + str(detected_personid))
                             comm = "SELECT * FROM %s WHERE personid = '%s'" % (TABLE_NAME,detected_personid)
                             res = cursor.execute(comm)
                             res = cursor.fetchone()
@@ -246,7 +246,7 @@ class DynamicFrame(QWidget):
                                 uname = res[1]
                                 fname = res[2]
                                 lname = res[3]
-                                print "Welcome %s !" % (fname+' '+lname)
+                                print ("Welcome %s !" % (fname+' '+lname))
                                 detected_persons_cnt+=1
                                 detected_persons.append(fname)
                                 persons.append(fname)
@@ -260,16 +260,16 @@ class DynamicFrame(QWidget):
                                     #print format_str
                                     conn.execute(format_str)
                                     conn.commit()
-                                    print "Attendance marked for user %s " % uname
-                                else
-                                    print "Attendance already marked for user %s " % uname
+                                    print ("Attendance marked for user %s " % uname)
+                                else:
+                                    print ("Attendance already marked for user %s " % uname)
 
 
 
                         
                         else:
                             time_str=strftime("%Y-%m-%d_%H:%M:%S", gmtime())
-                            print "Unknown person found"
+                            print ("Unknown person found")
                             cv2.imwrite(os.path.join(unknown_user_path,'cam1_'+time_str+'.jpg'),image_crop)
                             persons.append('Unknown')
    
@@ -286,7 +286,7 @@ class DynamicFrame(QWidget):
 
             else:
                 self.label2.setText('') 
-                print "No person in image"               
+                print ("No person in image")               
             
             k=0
             
@@ -307,8 +307,8 @@ class DynamicFrame(QWidget):
             self.face_image.setPixmap(QPixmap.fromImage(face_image))
                                        
         except Exception as e:
-            print "Errors occured !"
-            print e
+            print ("Errors occured !")
+            print (e)
         
 
 class FullscreenWindow:
