@@ -118,7 +118,7 @@ def add_person_face(personId,image_url):
 def face_identify(faceId):
     body = '{ "personGroupId":"%s","faceIds":["%s"]}' % (personGroupId, faceId)
     try:
-        conn = httplib.HTTPSConnection(msface_api_url)
+        conn = httplib2.HTTPSConnection(msface_api_url)
         conn.request("POST", "/face/v1.0/identify?" , body, headers)
         response = conn.getresponse()
         data = response.read()
@@ -132,7 +132,7 @@ def face_identify(faceId):
 
 def train():
     try:
-        conn = httplib.HTTPSConnection(msface_api_url)
+        conn = httplib2.HTTPSConnection(msface_api_url)
         conn.request("POST", "/face/v1.0/persongroups/%s/train?" % personGroupId, "", headers)
         response = conn.getresponse()
         data = response.read()
