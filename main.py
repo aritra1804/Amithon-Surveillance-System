@@ -158,7 +158,7 @@ class DynamicFrame(QWidget):
                 scaleFactor=1.1,
                 minNeighbors=5,
                 minSize=(80, 80),
-                flags=cv2.cv.CV_HAAR_SCALE_IMAGE
+                # flags=cv2.CV_HAAR_SCALE_IMAGE
             )
 
 
@@ -192,7 +192,7 @@ class DynamicFrame(QWidget):
         print ("Face identification started ..........")
         cv2.destroyAllWindows()
         try:
-            for i in xrange(ramp_frames):
+            for i in range(ramp_frames):
                 s, im = self.capture.read()   
 
             ret,frame = self.capture.read()
@@ -205,7 +205,7 @@ class DynamicFrame(QWidget):
                 scaleFactor=1.1,
                 minNeighbors=5,
                 minSize=(80, 80),
-                flags=cv2.cv.CV_HAAR_SCALE_IMAGE
+                flags=cv2.CV_HAAR_SCALE_IMAGE
             )
 
             
