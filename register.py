@@ -338,7 +338,7 @@ class GenerateDatasetTab(QWidget):
                 os.umask(original_umask)
 
     def initGrid(self):
-        range_x=(self.maxSnapshotCnt+1)/2
+        range_x=int((self.maxSnapshotCnt+1)/2)
         self.snpLabels =[]
         for i in range(self.maxSnapshotCnt):
             self.snpLabels.append(QLabel())
@@ -347,7 +347,7 @@ class GenerateDatasetTab(QWidget):
             self.snpLabels[i].setObjectName("gframe")
 
         range_y =2
-        pos = [(i,j) for i in range(range_x) for j in range(range_y)]
+        pos = ([(i,j) for i in range(range_x) for j in range(range_y)])
         
         for p, lbl in zip(pos, self.snpLabels):
             self.snpGrid.addWidget(lbl,*p)
